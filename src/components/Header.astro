@@ -1,0 +1,107 @@
+---
+// Navigation links
+const navLinks = [
+  { href: "#hero", label: "Home" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+];
+---
+
+<header
+  class="fixed w-full z-50 bg-[#110e1b]/90 backdrop-blur-md py-4 shadow-lg"
+>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+    <a
+      href="#"
+      class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-300"
+    >
+      Ethan<span class="text-[#7c162e]">.</span>dev
+    </a>
+
+    <!-- Mobile menu button -->
+    <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Desktop navigation -->
+    <nav class="hidden md:flex items-center gap-8">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-gray-300 hover:text-white transition duration-300 text-sm relative hover:gradient-border after:scale-x-0 after:hover:scale-x-100 after:transition-transform after:duration-300"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/ethan_resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-gradient-to-r from-[#3c162f] to-[#5c162e] text-white px-5 py-2 rounded-md text-sm hover:from-[#5c162e] hover:to-[#7c162e] transition-all duration-300"
+      >
+        Resume
+      </a>
+    </nav>
+  </div>
+
+  <!-- Mobile navigation -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-[#110e1b]/95 backdrop-blur-md"
+  >
+    <div class="px-4 py-4 space-y-3">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="block text-gray-300 hover:text-white transition duration-300 py-2"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        href="/Ethan_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="block bg-gradient-to-r from-[#3c162f] to-[#5c162e] text-white px-4 py-2 rounded-md hover:from-[#5c162e] hover:to-[#7c162e] transition-all duration-300 mt-4 text-center"
+      >
+        Resume
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Close mobile menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+</script>

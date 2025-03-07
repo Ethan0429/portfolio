@@ -1,0 +1,106 @@
+---
+// Skills data - customize with your actual skills
+const skillCategories = [
+  {
+    name: "Frontend",
+    skills: [
+      { name: "HTML5", level: 90 },
+      { name: "CSS", level: 85 },
+      { name: "JavaScript", level: 90 },
+      { name: "TypeScript", level: 80 },
+      { name: "React", level: 85 },
+      { name: "Vue.js", level: 75 },
+      { name: "Svelte", level: 70 },
+      { name: "Tailwind CSS", level: 80 },
+    ],
+  },
+  {
+    name: "Backend",
+    skills: [
+      { name: "Python", level: 70 },
+      { name: "Golang", level: 60 },
+      { name: "Node.js", level: 80 },
+      { name: "Express", level: 75 },
+      { name: "Django", level: 65 },
+      { name: "Flask", level: 60 },
+      { name: "PostgreSQL", level: 70 },
+      { name: "RESTful APIs", level: 85 },
+    ],
+  },
+  {
+    name: "Libraries",
+    skills: [
+      { name: "Pandas", level: 75 },
+      { name: "Playwright", level: 60 },
+      { name: "Matplotlib", level: 65 },
+    ],
+  },
+];
+
+// Tools and technologies
+const tools = ["VS Code", "Git", "GitHub", "Docker", "AWS"];
+---
+
+<section id="skills" class="py-20 relative overflow-hidden">
+  <!-- Background decorative elements -->
+  <div
+    class="absolute top-0 right-0 w-96 h-96 bg-[#3c162f] rounded-full filter blur-[150px] opacity-20 -z-10"
+  >
+  </div>
+  <div
+    class="absolute bottom-0 left-0 w-96 h-96 bg-[#5c162e] rounded-full filter blur-[150px] opacity-20 -z-10"
+  >
+  </div>
+
+  <div class="section-container">
+    <h2 class="section-title">My Skills</h2>
+    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-16">
+      I've cultivated a diverse skill set over my programming journey. Here's a
+      look at the technologies and tools I work with.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      {
+        skillCategories.map((category) => (
+          <div class="bg-[#191528]/80 backdrop-blur-sm rounded-xl p-6 border border-[#3c162f]/30 hover:border-[#3c162f]/60 transition-colors duration-300">
+            <h3 class="text-xl font-bold mb-6 text-center gradient-border inline-block mx-auto">
+              {category.name}
+            </h3>
+
+            <div class="space-y-5">
+              {category.skills.map((skill) => (
+                <div class="space-y-2">
+                  <div class="flex justify-between text-sm">
+                    <span>{skill.name}</span>
+                  </div>
+                  <div class="w-full h-2 bg-[#110e1b] rounded-full overflow-hidden">
+                    <div
+                      class="h-full rounded-full bg-gradient-to-r from-[#3c162f] to-[#7c162e]"
+                      style={`width: ${skill.level}%`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="bg-[#191528]/80 backdrop-blur-sm rounded-xl p-6 border border-[#3c162f]/30"
+    >
+      <h3 class="text-xl font-bold mb-6 text-center">Tools & Technologies</h3>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        {
+          tools.map((tool) => (
+            <span class="px-4 py-2 bg-[#3c162f]/50 rounded-full text-sm hover:bg-[#5c162e]/60 transition-colors duration-300">
+              {tool}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

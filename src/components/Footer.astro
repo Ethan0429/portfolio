@@ -1,0 +1,58 @@
+---
+const currentYear = new Date().getFullYear();
+
+// Navigation links
+const footerLinks = [
+  { href: "#hero", label: "Home" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+];
+---
+
+<footer class="bg-[#110e1b] text-white py-8 border-t border-[#3c162f]/30">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <div class="mb-4 md:mb-0">
+        <a
+          href="#"
+          class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-300"
+        >
+          Ethan<span class="text-[#7c162e]">.</span>dev
+        </a>
+        <p class="text-gray-400 text-sm mt-2">
+          Slamming my head into my keyboard as we speak
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
+        {
+          footerLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="text-gray-400 text-sm text-center md:text-right">
+        <p>© {currentYear} Ethan. All rights reserved.</p>
+        <p class="mt-1">
+          <a
+            href="mailto:ethan@example.com"
+            class="hover:text-white transition-colors duration-300"
+          >
+            ethanrickert0429@gmail.com
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div
+      class="mt-8 pt-6 border-t border-[#3c162f]/30 text-center text-gray-500 text-xs"
+    >
+    </div>
+  </div>
+</footer>

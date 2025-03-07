@@ -1,0 +1,138 @@
+---
+// Sample projects data - replace with your actual projects
+import { Image } from "astro:assets";
+import kyiImage from "../images/kyi.io.png";
+import cs102HandbookImage from "../images/cs102handbook.png";
+import utkAuthImage from "../images/utk-auth.webp";
+
+const projects = [
+  {
+    title: "knowyourinfluencer.io",
+    description:
+      "A full-stack web application built with Sveltekit, Tailwindcss, Express, and PostgreSQL. It allows users to search for anything a YouTube influencer has said in their videos — indexed across thousands of videos.",
+    image: kyiImage,
+    tags: ["Sveltkit", "Node.js", "PostgreSQL"],
+    liveUrl: "https://knowyourinfluencer.io/",
+    repoUrl: "https://github.com/Ethan0429",
+    featured: true,
+  },
+  {
+    title: "UTK Discord Authentication Bot",
+    description:
+      "A Discord bot that authenticates students in the UTK CS Discord server using their student NetID. Built using Python and the Discord API.",
+    image: utkAuthImage,
+    tags: ["Python", "Docker", "Discord API"],
+    liveUrl: "https://github.com/Ethan0429/utk-auth",
+    repoUrl: "https://github.com/Ethan0429/utk-auth",
+    featured: true,
+  },
+  {
+    title: "Computer Science Handbook",
+    description:
+      "A comprehensive handbook for computer science 102 students at the University of Tennessee. It covers introductory topics in computer science primarily in C++. Written in Markdown and built with Docusaurus.",
+    image: cs102HandbookImage,
+    tags: ["Docusaurus", "JSX", "Markdown"],
+    liveUrl: "https://utk-eecs-crumpton-tas.github.io/cs102-handbook/",
+    repoUrl: "https://github.com/utk-eecs-crumpton-tas/cs102-handbook",
+    featured: true,
+  },
+];
+
+// Get featured projects to show first
+const featuredProjects = projects.filter((project) => project.featured);
+const otherProjects = projects.filter((project) => !project.featured);
+const allProjects = [...featuredProjects, ...otherProjects];
+---
+
+<section id="projects" class="py-20 bg-[#110e1b]/50">
+  <div class="section-container">
+    <h2 class="section-title">My Projects</h2>
+    <p class="text-gray-400 text-center max-w-2xl mx-auto mb-12">
+      Here are some of my recent projects. Each one presented unique challenges
+      that helped me grow as a developer.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        allProjects.map((project, index) => (
+          <div
+            class={`group bg-[#191528]/80 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-[#3c162f]/20 border border-[#3c162f]/30 backdrop-blur-sm ${project.featured ? "md:col-span-2 lg:col-span-1" : ""}`}
+          >
+            <div class="relative overflow-hidden h-52">
+              <div class="absolute inset-0 bg-gradient-to-b from-[#3c162f]/50 to-[#191528] flex items-center justify-center">
+                <img
+                  src={project.image.src}
+                  alt={project.title}
+                  class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+
+              <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-[#110e1b] to-transparent">
+                <div class="flex gap-2 flex-wrap">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span class="text-xs bg-[#3c162f]/80 text-white/90 px-2 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                  {project.tags.length > 3 && (
+                    <span class="text-xs bg-[#3c162f]/80 text-white/90 px-2 py-1 rounded-full">
+                      +{project.tags.length - 3}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+              <p class="text-gray-400 mb-4 text-sm">{project.description}</p>
+
+              <div class="flex gap-3">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm bg-gradient-to-r from-[#3c162f] to-[#5c162e] text-white px-4 py-2 rounded-md hover:from-[#5c162e] hover:to-[#7c162e] transition-all duration-300 flex-1 text-center"
+                >
+                  Check it out
+                </a>
+                <a
+                  href={project.repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm border border-[#5c162e] text-white px-4 py-2 rounded-md hover:bg-[#5c162e]/20 transition-all duration-300 flex-1 text-center"
+                >
+                  Code
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-5 text-center">
+      <a
+        href="https://github.com/ethan0429"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors duration-300"
+      >
+        View more on GitHub
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
