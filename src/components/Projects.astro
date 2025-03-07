@@ -17,9 +17,9 @@ const projects = [
     featured: true,
   },
   {
-    title: "UTK Discord Authentication Bot",
+    title: "Discord Authentication Bot",
     description:
-      "A Discord bot that authenticates students in the UTK CS Discord server using their student NetID. Built using Python and the Discord API.",
+      "A Discord bot that authenticates students in the UTK CS Discord server using their student NetID and student credentials obtained from the Canvas API. Built using Python and the Discord API.",
     image: utkAuthImage,
     tags: ["Python", "Docker", "Discord API"],
     liveUrl: "https://github.com/Ethan0429/utk-auth",
@@ -84,10 +84,10 @@ const allProjects = [...featuredProjects, ...otherProjects];
             </div>
 
             <div class="p-6">
-              <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+              <div class="text-xl font-bold mb-2">{project.title}</div>
               <p class="text-gray-400 mb-4 text-sm">{project.description}</p>
 
-              <div class="flex gap-3">
+              <div class="flex gap-3 mt-auto">
                 <a
                   href={project.liveUrl}
                   target="_blank"
