@@ -5,6 +5,8 @@ const navLinks = [
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
 ];
+
+const resumeUrl = `${import.meta.env.BASE_URL}/ethan_resume.pdf`;
 ---
 
 <header
@@ -48,7 +50,7 @@ const navLinks = [
         ))
       }
       <a
-        href="/ethan_resume.pdf"
+        href={resumeUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="bg-gradient-to-r from-[#3c162f] to-[#5c162e] text-white px-5 py-2 rounded-md text-sm hover:from-[#5c162e] hover:to-[#7c162e] transition-all duration-300"
@@ -75,7 +77,7 @@ const navLinks = [
         ))
       }
       <a
-        href="/Ethan_Resume.pdf"
+        href={resumeUrl}
         target="_blank"
         rel="noopener noreferrer"
         class="block bg-gradient-to-r from-[#3c162f] to-[#5c162e] text-white px-4 py-2 rounded-md hover:from-[#5c162e] hover:to-[#7c162e] transition-all duration-300 mt-4 text-center"
