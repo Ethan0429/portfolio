@@ -52,10 +52,10 @@ const allProjects = [...featuredProjects, ...otherProjects];
       that helped me grow as a developer.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       {
         allProjects.map((project, index) => (
-          <div class="bg-[#191528]/80 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-[#3c162f]/20 border-[#3c162f]/30 flex flex-col">
+          <div class="group bg-[#191528]/80 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:shadow-[#3c162f]/20 border-[#3c162f]/30 flex flex-col">
             <div class="relative overflow-hidden h-52">
               <div class="absolute inset-0 bg-gradient-to-b from-[#3c162f]/50 to-[#191528] flex items-center justify-center">
                 <img
