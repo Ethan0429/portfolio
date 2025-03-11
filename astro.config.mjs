@@ -7,5 +7,5 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
-    site: 'https://ethan0429.github.io/ethan-portfolio/',
+    site: 'https://ethan0429.github.io/portfolio/',
 });
